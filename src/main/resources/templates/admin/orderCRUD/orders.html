@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ваши заказы</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+
+<div class="container">
+
+    <div class="container mt-5">
+        <div class="col-mt3" th:each="el : ${orders}">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${'Заказ №'+el.getId()}"></h5>
+                    <p class="card-text" th:text="${'Заказчик:'+el.getUser().getUsername()}"></p>
+                    <p class="card-text" th:text="${'Услуга:'+el.getAction().getName()}"></p>
+                    <p class="card-text" th:text="${'Срочность заказа:'+el.getUrgency().getDescription()}"></p>
+                    <p class="card-text" th:text="${'Статус заказа:'+el.getOrderStatus().getDescription()}"></p>
+                    <a th:href="${'/admin/orders/edit?id='+el.getId()}" class="btn btn-primary">Редактировать</a>
+                    <a th:href="${'/admin/orders/delete?id='+el.getId()}" class="btn btn-primary">Удалить</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+</html>

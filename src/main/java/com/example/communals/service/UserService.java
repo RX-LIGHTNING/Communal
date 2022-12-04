@@ -8,6 +8,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
@@ -26,5 +28,22 @@ public class UserService {
     }
     public User findByUsername(String username){
         return userRepo.findByUsername(username).get();
+    }
+    public Iterable<User> getAll(){
+        return userRepo.findAll();
+    }
+
+    public User getById(Long id){
+        return userRepo.findById(id).get();
+    }
+
+    public void delete(Long id){
+        userRepo.deleteById(id);
+    }
+    public User edit(User user, Role[] roles){
+        Set<Role> targetSet = new HashSet<Role>();
+        Collections.addAll(targetSet, roles);
+        user.setRoles(targetSet);
+        return userRepo.save(user);
     }
 }

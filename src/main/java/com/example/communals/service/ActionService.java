@@ -13,6 +13,9 @@ public class ActionService {
     public Action save(Action action){
         return actionRepo.save(action);
     }
+    public void deleteById(Long id){
+        actionRepo.deleteById(id);
+    };
     public Action getById(Long id){
         return actionRepo.findById(id).get();
     }

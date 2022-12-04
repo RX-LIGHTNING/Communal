@@ -24,7 +24,7 @@ public class Order {
     @OneToOne
     private User user;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     private Action action;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -41,5 +41,18 @@ public class Order {
     public Order(Action action, User user) {
         this.setAction(action);
         this.setUser(user);
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", user=" + user +
+                ", action=" + action +
+                ", date=" + date +
+                ", description='" + description + '\'' +
+                ", urgency=" + urgency +
+                ", orderStatus=" + orderStatus +
+                '}';
     }
 }

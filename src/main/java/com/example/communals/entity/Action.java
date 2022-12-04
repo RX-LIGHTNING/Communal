@@ -18,6 +18,11 @@ public class Action {
     private String name;
     private String description;
     @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "order_id")
+    @JoinColumn(name = "action_id")
     private List<Order> orders;
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }
