@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5 "
+      xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Админ-панель</title>
@@ -16,10 +18,10 @@
     <div class="container" id="navbarSupportedContent">
         <ul class="navbar-nav mr-3 me-auto mb-3 mb-lg-0">
             <li class="nav-item">
-                <a class="nav-link" href="/admin/actions">Услуги</a>
+                <a class="nav-link" sec:authorize="hasAuthority('ACTIONACCESS')" href="/admin/actions">Услуги</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/admin/orders">Заказы</a>
+                <a class="nav-link" sec:authorize="hasAuthority('ORDERACCESS')" href="/admin/orders">Заказы</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/admin/users">Пользователи</a>
