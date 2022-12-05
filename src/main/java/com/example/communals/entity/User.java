@@ -27,7 +27,7 @@ public class User {
     private String passwordHash;
     private boolean active = true;
 
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     public List<Order> orderList;
 }

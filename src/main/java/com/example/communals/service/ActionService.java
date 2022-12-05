@@ -22,4 +22,8 @@ public class ActionService {
     public Iterable<Action> getAll(){
         return actionRepo.findAll();
     }
+
+    public Iterable<Action> getAllByFilter(String search) {
+        return actionRepo.findByNameIsContainingIgnoreCase(search);
+    }
 }

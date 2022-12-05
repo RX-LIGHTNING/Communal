@@ -30,6 +30,12 @@ public class ActionController {
         model.addAttribute("actions", actionService.getAll());
         return "action";
     }
+    @GetMapping("/action")
+    public String getServices(Model model, @RequestParam(name="search", required = true)String search){
+        model.addAttribute("actions", actionService.getAllByFilter(search));
+        return "action";
+    }
+
 
     @GetMapping("/action/order")
     public String getOrderWindow(Model model, @RequestParam(name="id", required = true)long id){

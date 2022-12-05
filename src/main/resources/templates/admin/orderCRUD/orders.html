@@ -8,27 +8,28 @@
 </head>
 <body>
 <header th:insert="blocks/header :: header"></header>
+<div class="album py-5 bg-light">
+    <div class="container">
 
-<div class="container">
-
-    <div class="container mt-5">
-        <div class="col-mt3" th:each="el : ${orders}">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title" th:text="${'Заказ №'+el.getId()}"></h5>
-                    <p class="card-text" th:text="${'Заказчик:'+el.getUser().getUsername()}"></p>
-                    <p class="card-text" th:text="${'Услуга:'+el.getAction().getName()}"></p>
-                    <p class="card-text" th:text="${'Срочность заказа:'+el.getUrgency().getDescription()}"></p>
-                    <p class="card-text" th:text="${'Статус заказа:'+el.getOrderStatus().getDescription()}"></p>
-                    <a th:href="${'/admin/orders/edit?id='+el.getId()}" class="btn btn-primary">Редактировать</a>
-                    <a th:href="${'/admin/orders/delete?id='+el.getId()}" class="btn btn-primary">Удалить</a>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-md-4" th:each="el : ${orders}">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${'Заказ №'+el.getId()}"></h5>
+                            <p class="card-text" th:text="${'Заказчик:'+el.getUser().getUsername()}"></p>
+                            <p class="card-text" th:text="${'Услуга:'+el.getAction().getName()}"></p>
+                            <p class="card-text" th:text="${'Срочность заказа:'+el.getUrgency().getDescription()}"></p>
+                            <p class="card-text" th:text="${'Статус заказа:'+el.getOrderStatus().getDescription()}"></p>
+                            <a th:href="${'/admin/orders/edit?id='+el.getId()}"
+                               class="btn btn-primary">Редактировать</a>
+                            <a th:href="${'/admin/orders/delete?id='+el.getId()}" class="btn btn-primary">Удалить</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-
-
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
