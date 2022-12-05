@@ -24,6 +24,8 @@ public class User {
     private String phone;
     private String adress;
     private String username;
+    private String firstname;
+    private String surname;
     private String passwordHash;
     private boolean active = true;
 

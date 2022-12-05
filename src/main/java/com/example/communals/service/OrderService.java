@@ -1,6 +1,7 @@
 package com.example.communals.service;
 
 import com.example.communals.entity.Order;
+import com.example.communals.entity.enums.OrderStatus;
 import com.example.communals.repo.OrderRepo;
 import com.example.communals.repo.UserRepo;
 import lombok.RequiredArgsConstructor;
@@ -36,7 +37,16 @@ public class OrderService {
         return orderRepo.findAllByUser(userService.findByUsername(username));
     }
 
-    public void delete(Long id){
+    public void delete(Long id) {
         orderRepo.deleteById(id);
+    }
+
+    public void cancelOrder(Long id, String username) {
+        Order order = orderRepo.findById(id).get();
+        if (order.getUser().getUsername().equals(username)){
+            order.setOrderStatus(OrderStatus.CANCELED);
+            orderRepo.save(order);
+        }
+
     }
 }

@@ -3,7 +3,8 @@ package com.example.communals.entity.enums;
 public enum OrderStatus {
     OPEN("Открыт"),
     INPROGRESS("В процессе выполнения"),
-    CLOSED("Закрыт");
+    CLOSED("Закрыт"),
+    CANCELED("Отменен");
 
     final String description;
 

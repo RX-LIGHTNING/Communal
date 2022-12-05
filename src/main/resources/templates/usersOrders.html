@@ -30,6 +30,7 @@
             <th scope="col">Услуга</th>
             <th scope="col">Срочность</th>
             <th scope="col">Статус</th>
+            <th scope="col">Действия</th>
         </tr>
         </thead>
         <tbody>
@@ -38,6 +39,9 @@
             <td th:text="${el.getAction().getName()}"></td>
             <td th:text="${el.getUrgency().getDescription()}"></td>
             <td th:text="${el.getOrderStatus().getDescription()}"></td>
+            <td>
+                <a th:href="${'/orders/cancel?id='+el.getId()}" class="btn btn-danger">Отменить</a>
+            </td>
         </tr>
         </tbody>
     </table>

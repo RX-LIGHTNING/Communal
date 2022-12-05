@@ -28,6 +28,14 @@
     <input type="tel" class="form-control" name="phone" th:field="*{phone}" id="floatingInput" placeholder="Дата выполнения заказа">
     <label for="floatingInput">Номер телефона</label>
   </div>
+  <div class="form-floating">
+    <input type="text" class="form-control" name="firstname" th:field="*{firstname}" id="floatingInput" placeholder="имя">
+    <label for="floatingInput">Имя</label>
+  </div>
+  <div class="form-floating">
+    <input type="text" class="form-control" name="surname" th:field="*{surname}" id="floatingInput" placeholder="фамилия">
+    <label for="floatingInput">Фамилия</label>
+  </div>
   <div th:each="el : ${Roles}">
     <br><input th:text="${el}" th:checked="${User.getRoles().contains(el)}"  type="checkbox" name="selected" th:value="${el}"><br><a th:text="${el.getDescription()}"/>
   </div>
