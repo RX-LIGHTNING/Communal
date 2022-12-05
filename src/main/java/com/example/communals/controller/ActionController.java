@@ -30,8 +30,8 @@ public class ActionController {
         model.addAttribute("actions", actionService.getAll());
         return "action";
     }
-    @GetMapping("/action")
-    public String getServices(Model model, @RequestParam(name="search", required = true)String search){
+    @GetMapping("/action/filter")
+    public String getServicesByFilter(Model model, @RequestParam(name="search", required = true)String search){
         model.addAttribute("actions", actionService.getAllByFilter(search));
         return "action";
     }
