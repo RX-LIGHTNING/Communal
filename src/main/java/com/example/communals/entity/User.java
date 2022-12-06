@@ -32,4 +32,20 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     public List<Order> orderList;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", roles=" + roles +
+                ", phone='" + phone + '\'' +
+                ", adress='" + adress + '\'' +
+                ", username='" + username + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", surname='" + surname + '\'' +
+                ", passwordHash='" + passwordHash + '\'' +
+                ", active=" + active +
+                ", orderList=" + orderList +
+                '}';
+    }
 }

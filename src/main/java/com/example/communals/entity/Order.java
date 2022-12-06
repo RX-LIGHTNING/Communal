@@ -30,6 +30,11 @@ public class Order {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date createdate = new Date();
+
+    @OneToOne(fetch = FetchType.LAZY)
+    private User attachedEmployee = null;
     private String description;
 
     @Enumerated(EnumType.ORDINAL)

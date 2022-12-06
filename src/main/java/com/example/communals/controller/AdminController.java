@@ -68,6 +68,7 @@ public class AdminController {
         model.addAttribute("Order", order);
         model.addAttribute("orderUrgency", Urgency.values());
         model.addAttribute("status", OrderStatus.values());
+        model.addAttribute("employees", userService.findAllByRole(Role.EMPLOYEE));
         return "/admin/orderCRUD/edit";
     }
     @GetMapping("/admin/orders/delete")

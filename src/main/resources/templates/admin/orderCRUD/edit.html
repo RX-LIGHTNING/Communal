@@ -40,6 +40,14 @@
       </option>
     </select>
   </div>
+  <div class="form-floating">
+    <select th:field="*{attachedEmployee}" id="floatingInput" class="form-control">
+      <option th:each="employee : ${employees}"
+              th:value="${employee.getId()}"
+              th:text="${employee.getFirstname()+ ' ' + employee.getSurname()}">
+      </option>
+    </select>
+  </div>
   <input type="hidden" name="name" id="name" th:field="*{action}">
   <input type="hidden" name="id" th:field="*{id}">
   <button class="w-100 btn btn-lg btn-primary" type="submit">Подтвердить заказ</button>

@@ -47,6 +47,13 @@ public class OrderService {
             order.setOrderStatus(OrderStatus.CANCELED);
             orderRepo.save(order);
         }
-
+    }
+    public List<Order> getAllByAttachedEmployee(String username) {
+        return orderRepo.findAllByAttachedEmployee(userService.findByUsername(username));
+    }
+    public void changeOrderStatus(OrderStatus orderStatus, Long id){
+        Order order = orderRepo.findById(id).get();
+        order.setOrderStatus(orderStatus);
+        orderRepo.save(order);
     }
 }

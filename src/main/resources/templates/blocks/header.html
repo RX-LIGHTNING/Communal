@@ -15,6 +15,7 @@
                 <li><a href="/action" class="nav-link px-2 text-white">Услуги</a></li>
                 <li><a href="/orders" class="nav-link px-2 text-white">Ваши заказы</a></li>
                 <li sec:authorize="hasAuthority('ADMIN')"><a href="/admin" class="nav-link px-2 text-white">Админ-панель</a></li>
+                <li sec:authorize="hasAuthority('EMPLOYEE')"><a href="/employee" class="nav-link px-2 text-white">Панель сотрудника</a></li>
             </ul>
             <div class="flex-shrink-0 dropdown" sec:authorize="isAuthenticated()">
                 <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser"
