@@ -21,15 +21,9 @@
                 <a href="#" class="d-block link-light text-decoration-none dropdown-toggle" id="dropdownUser"
                    data-bs-toggle="dropdown" aria-expanded="false" th:text="${#authentication.getPrincipal().getUsername()}"></a>
                 <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser" style="">
-                    <li><a class="dropdown-item"
-                           th:href="'/profile?username='+${#authentication.getPrincipal().getUsername()}">Profile</a>
-                    </li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
                     <li>
                         <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post">
-                            <input type="submit" class="dropdown-item" value="Sign Out"/>
+                            <input type="submit" class="dropdown-item" value="Выход"/>
                         </form>
                     </li>
                 </ul>
