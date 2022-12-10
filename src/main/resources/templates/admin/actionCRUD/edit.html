@@ -15,7 +15,7 @@
 <body class="d-flex flex-column min-vh-100">
 <header th:insert="blocks/header :: header"></header>
 <form th:action="@{/admin/actions/change/accept}" method="post" th:object="${Action}" class="container md-12" enctype="multipart/form-data">
-    <h1 class="h3 mb-3 fw-normal">Добавление услуги</h1>
+    <h1 class="h3 mb-3 fw-normal">Редактирование услуги</h1>
     <div class="form-floating">
         <input type="text" class="form-control" name="name" th:field="*{name}"  id="floatingInput" maxlength="255" placeholder="Название услуги">
         <label for="floatingInput">Название услуги</label>
@@ -23,6 +23,10 @@
     <div class="form-floating">
         <input type="text" class="form-control" name="description" id="floatingInput" maxlength="255" th:field="*{description}" placeholder="Комментарий">
         <label for="floatingInput">Комментарии к услуге</label>
+    </div>
+    <div class="form-floating">
+        <input type="number" class="form-control" name="price" th:field="*{price}" id="floatingInput" placeholder="Комментарий">
+        <label for="floatingInput">Стоимость</label>
     </div>
     <input type="hidden" name="id" th:field="*{id}">
     <button class="w-100 btn btn-lg btn-primary" type="submit">Изменить</button>

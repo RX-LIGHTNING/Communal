@@ -16,6 +16,7 @@ public class Action {
     @Column(name = "id", nullable = false)
     private Long id;
     private String name;
+    private Double price;
     private String description;
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "action_id")

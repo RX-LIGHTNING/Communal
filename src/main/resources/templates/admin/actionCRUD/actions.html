@@ -24,6 +24,7 @@
                         <div class="card-body">
                             <h5 class="card-title" th:text="${el.getName()}"></h5>
                             <p class="card-text" th:text="${el.getDescription()}"></p>
+                            <p class="card-text" th:text="${'Стоимость: '+el.getPrice()}"></p>
                             <a th:href="${'/admin/actions/edit?id='+el.getId()}"
                                class="btn btn-primary">Редактировать</a>
                             <a th:href="${'/admin/actions/delete?id='+el.getId()}" class="btn btn-primary">Удалить</a>
@@ -52,6 +53,10 @@
                     <div class="form-floating">
                         <input type="text" class="form-control" name="description" id="floatingInput" maxlength="255" placeholder="Комментарий">
                         <label for="floatingInput">Комментарии к услуге</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="number" class="form-control" name="price" id="floatingInput" placeholder="Комментарий">
+                        <label for="floatingInput">Стоимость</label>
                     </div>
                     <button class="w-100 btn btn-lg btn-primary" type="submit">Добавить</button>
                 </form>
