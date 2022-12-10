@@ -44,6 +44,7 @@ public class AdminController {
     }
     @GetMapping("/admin/actions/delete")
     public String deleteService(Model model, @RequestParam(name="id", required = true)long id){
+        actionService.deleteById(id);
         return "redirect:/admin/actions";
     }
     @GetMapping("/admin/actions/add")
