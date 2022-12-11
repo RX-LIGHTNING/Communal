@@ -79,7 +79,7 @@ public class AdminController {
     }
     @PostMapping("/admin/orders/accept")
     public String changeOrders(Model model, @ModelAttribute("order") Order order){
-        orderService.save(order);
+        orderService.edit(order);
         return "redirect:/admin/orders";
     }
 

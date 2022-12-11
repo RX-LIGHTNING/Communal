@@ -24,6 +24,10 @@ public class OrderService {
         System.out.println(SecurityContextHolder.getContext().getAuthentication().getName());
         return orderRepo.save(order);
     }
+    public Order edit(Order order) {
+        order.setUser(orderRepo.findById(order.getId()).get().getUser());
+        return orderRepo.save(order);
+    }
 
     public Iterable<Order> getAll() {
         return orderRepo.findAll();
